@@ -1,2 +1,2 @@
-# learn_django
-test code developed while learning Django 
+# Learn Django
+Test code developed while learning Django 
