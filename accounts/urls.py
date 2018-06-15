@@ -4,6 +4,6 @@ from django.contrib.auth.views import login
 
 urlpatterns = [
     path('', views.home),
-    path('register', views.register),
+    path('register', views.register, name="register"),
     path('login', login, {'template_name': 'accounts/login.html'}),
 ]
