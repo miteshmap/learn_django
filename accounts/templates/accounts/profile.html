@@ -10,11 +10,10 @@
     <!-- <script src="main.js"></script> -->
 </head>
 <body>
-    <h1>Register Now</h1>
-    <form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register me!!</button>
-    </form>
+    <h1>Welcome</h1>
+    <p>
+    {{ user.first_name }}
+    {{ user.last_name }}
+    </p>
 </body>
 </html>

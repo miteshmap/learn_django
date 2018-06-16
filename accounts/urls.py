@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.home),
     path('register', views.register, name="register"),
     path('login', login, {'template_name': 'accounts/login.html'}),
+    path('profile', views.profile, name="profile"),
 ]
