@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from accounts.forms import RegistrationFrom
+from accounts.forms import RegistrationFrom, ProfileEditForm
 from django.contrib.auth.models import User
 
 # Create your views here.
@@ -18,5 +18,18 @@ def register(request):
     args = {'form': form}
     return render(request, 'accounts/register.html', args)
 
-def profile(request):
+def profile_view(request):
     return render(request, "accounts/profile.html", {'user': request.user})
+
+def profile_edit(request):
+    if request.method == 'POST':
+        form = ProfileEditForm(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect('/account/profile')
+    else:
+        form = ProfileEditForm(instance=request.user)
+        args = {'form': form}
+        return render(request, "accounts/profile_edit.html", args)
+
