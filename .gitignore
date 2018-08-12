@@ -6,6 +6,7 @@ __pycache__/
 *$py.class
 static/*
 list/*
+*.pyc
 
 # Distribution / packaging
 .Python
