@@ -1,13 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from ckeditor.fields import RichTextField
+from ckeditor.widgets import CKEditorWidget
 
 class UserProfile(models.Model):
     """
     User profile class to have additional fields for users.
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    description = models.CharField(max_length=100, default= '')
+    description = RichTextField(config_name='awesome_ckeditor')
+    #description = models.CharField(widget=CKEditorWidget(config_name='awesome_ckeditor'))
     city = models.CharField(max_length=100, default='')
     website = models.URLField()
     phone = models.IntegerField(default=0)
