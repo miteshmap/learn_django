@@ -15,6 +15,9 @@ class UserProfile(models.Model):
     website = models.URLField()
     phone = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.user.username
+
 def create_profile(sender, **kwargs):
     """
     Create user profile when admin creates a user that's why it should
