@@ -21,6 +21,7 @@ from django.conf.urls import include, url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('accounts.urls')),
+    path('blog/', include('miteshmap_blog.urls')),
 ]
 
 if settings.DEBUG:
