@@ -3,13 +3,13 @@ from django.contrib.auth.models import User
 from miteshmap_blog.models import MiteshmapBlog, MiteshmapBlogTags, MiteshmapBlogWebsites
 
 class MiteshmapBlogCreate():
-    
+
     class Meta:
         model = MiteshmapBlog
         fields = (
             'title',
             'description',
-            # 'tags',
+            'tags',
             'websites',
             'create',
             'is_published',

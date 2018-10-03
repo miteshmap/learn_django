@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Django tutorial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="stylesheet" type="text/css" media="screen" href="{% static 'accounts/style.css' %}" />
+  <!-- <script src="main.js"></script> -->
+</head>
+<body>
+  <h1>Blogs</h1>
+  {% if object_list %}
+  <ul>
+    {% for blog in blog_list %}
+      <li>
+        <a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a> ({{blog.author}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no blogs in the library.</p>
+  {% endif %}
+</body>
+</html>
