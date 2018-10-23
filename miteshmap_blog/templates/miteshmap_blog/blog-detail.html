@@ -1,17 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Django tutorial</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% load static %}
-  <link rel="stylesheet" type="text/css" media="screen" href="{% static 'accounts/style.css' %}" />
-  <!-- <script src="main.js"></script> -->
-</head>
-<body>
-  <h1>Title: {{ blog.title }}</h1>
+{% extends 'page.html' %}
+{% block pagecontent %}
+<div class="posts">
+  <div class="row post text">
+    <div class="col-lg-2">
+      <div class="date">
+        <a href="#">
+          {{ blog.created }}
+        </a>
+      </div> <!-- .date -->
+      <p><strong>Author:</strong> <a href="">{{ blog.user }}</a></p> <!-- author detail link not yet defined -->
+      <div class="tweet share-link clearfix"><iframe id="twitter-widget-0" scrolling="no" frameborder="0"
+          allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button"
+          style="position: static; visibility: visible; width: 61px; height: 20px;" title="Twitter Tweet Button" src="https://platform.twitter.com/widgets/tweet_button.9a52e80b2027b7ab835b0e968a612a25.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=http%3A%2F%2Fblog.bootswatch.com%2Fpost%2F172345693291%2Fbootswatch-4-officially-arrives&amp;size=m&amp;text=Bootswatch%204%20officially%20arrives&amp;time=1540047612061&amp;type=share&amp;url=http%3A%2F%2Fblog.bootswatch.com%2Fpost%2F172345693291%2Fbootswatch-4-officially-arrives&amp;via=bootswatch"
+          data-url="http://blog.bootswatch.com/post/172345693291/bootswatch-4-officially-arrives"></iframe></div>
+    </div> <!-- .span3 -->
+    <div class="col-lg-7 entry">
 
-  <p><strong>Author:</strong> <a href="">{{ blog.user }}</a></p> <!-- author detail link not yet defined -->
-</body>
-</html>
+      <div class="title">
+        <h1>{{ blog.title }}</h1>
+      </div> <!-- .title -->
+      <img src="{{ blog.image.url }}" />
+      <div class="POST">
+        {{ blog.description|safe }}
+      </div>
+    </div> <!-- .entry -->
+  </div> <!-- .row .post -->
+</div>
+{% endblock %}
