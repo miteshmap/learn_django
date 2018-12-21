@@ -7,6 +7,10 @@ from miteshmap_blog.models import MiteshmapBlog, MiteshmapBlogTags, MiteshmapBlo
 @admin.register(MiteshmapBlog)
 class MiteshmapBlogAdmin(admin.ModelAdmin):
     list_display = ('title', 'user', 'created', 'modified', 'is_published')
+    list_filter = ('user', 'created', 'modified', 'is_published')
+    search_fields = ('title',)
+    date_hierarchy = 'created'
+    prepopulated_fields = {'alias': ('title',)}
 
     # def published_status(self, obj):
     #     if (obj.is_published):

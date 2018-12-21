@@ -6,6 +6,7 @@ from django.utils.translation import gettext as _
 from django.utils import timezone
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.urls import reverse
+
 # Import regular expression.
 import re
 
@@ -73,7 +74,8 @@ class MiteshmapBlog(models.Model):
         return re.split(" ", self.tags)
 
     def get_absolute_url(self):
-        return '/blog/%s' % self.alias
+        return reverse('miteshmap_blog:blog-detail-slug', args=[self.alias])
+        # return '/blog/%s' % self.alias
 
     class Meta:
         db_table = 'blogs'
