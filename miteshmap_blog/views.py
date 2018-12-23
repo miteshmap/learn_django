@@ -9,6 +9,7 @@ class MiteshmapBlogListView(generic.ListView):
     context_object_name = 'blog_list'   # your own name for the list as a template variable
     # queryset = MiteshmapBlog.objects.filter(title__icontains='war')[:5] # Get 5 books containing the title war
     template_name = 'miteshmap_blog/blog-list.html'
+    paginate_by = 3
 
 class MiteshmapBlogDetailView(generic.DetailView):
     model = MiteshmapBlog
